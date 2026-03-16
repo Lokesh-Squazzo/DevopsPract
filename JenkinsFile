@@ -1,11 +1,29 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven3'
+    }
+
     stages {
-        stage('Test') {
+
+        stage('Checkout') {
             steps {
-                echo 'Hello World'
+                git 'https://github.com/Lokesh-Squazzo/DevopsPract.git'
             }
         }
+
+        stage('Build') {
+            steps {
+                bat 'mvn clean compile'
+            }
+        }
+
+        stage('Run Selenium Test') {
+            steps {
+                bat 'mvn test'
+            }
+        }
+
     }
 }
