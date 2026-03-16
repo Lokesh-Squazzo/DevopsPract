@@ -9,7 +9,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/Lokesh-Squazzo/DevopsPract.git'
+                git branch: 'main', url: 'https://github.com/Lokesh-Squazzo/DevopsPract.git'
             }
         }
 
@@ -24,6 +24,5 @@ pipeline {
                 bat 'mvn test'
             }
         }
-
     }
 }
